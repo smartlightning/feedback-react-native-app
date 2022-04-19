@@ -1,20 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, TouchableOpacity} from 'react-native';
+import FeedbackForm from './components/FeedbackForm';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.navbar}>
+            <Text style={styles.title}> Feedback App</Text>
+            <TouchableOpacity>
+
+            <Image source= {{ width: 400, height: 300 ,uri: "https://picsum.photos/400/300"}} />
+            </TouchableOpacity>
+          </View>
+          <FeedbackForm />
+          <StatusBar style='auto' />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+    backgroundColor: '#DBC3E6',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  navbar: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    backgroundColor: '#8AC7E1',
+  },
+  title: {
+    fontSize: 34,
+    margin: 15,
   },
 });
